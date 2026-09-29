@@ -133,7 +133,7 @@ class Train:
         """Load or create a TunedLens model."""
         if self.lens_name_or_path is None:
             logger.info("Randomly initializing lens...")
-            lens = TunedLens.from_model(model)
+            lens = TunedLens.from_model(model, model_revision=self.model.revision)
         else:
             logger.info("Loading pretrained lens...")
             lens = TunedLens.from_model_and_pretrained(model, self.lens_name_or_path)
